@@ -160,6 +160,10 @@ a.eval {
     margin: 0;
 }
 
+.parent {
+    display: none;
+}
+
 /** Print */
 @media print {
     @page {

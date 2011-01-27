@@ -22,6 +22,8 @@ Usage
 
 Navigate, double click anywhere, press space or use the left/up and right/down arrow keys
 
+**Now with slide hierarchies!**
+
 Go to a slide directly, press number keys and then enter
 
 Get an overview, press escape, tab or delete then click on a slide to go straight to it
@@ -34,6 +36,10 @@ Jordi Boggiano - <j.boggiano@seld.be>
 
 Changelog
 ---------
+- 1.1.0
+  - Slides require a 'parent' classed item, numbering the parent slide.
+  - Up and Page Up keys go to parent slide.
+  - Down and Page Down keys go to next slide at the same level.
 
 - 1.0.0
   - Switched license to BSD

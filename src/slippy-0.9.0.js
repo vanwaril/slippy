@@ -14,7 +14,7 @@
 
 // Slide deck module
 (function($) {
-    var slides, curSlide, options, inOverview,
+    var slides, curSlide, options, inOverview, parents,
         // methods
         buildSlide, preparePreTags, executeCode, nextSlide, prevSlide, showSlide, setSlide,
         keyboardNav, antiScroll, urlChange, autoSize, clickNav, animInForward, animInRewind, animOutForward, animOutRewind;
@@ -195,19 +195,24 @@
             if (e.altKey || e.ctrlKey || inOverview) { return; }
 
             switch (e.keyCode) {
-            // handle right/down arrow + space + page down
+            // handle right arrow + space + page down
             case 32:
             case 34:
             case 39:
-            case 40:
                 window.scroll(0, 0);
                 return nextSlide(e);
 
-            // handle left/up arrow and page up
-            case 33:
+            // handle down arrow
+            case 40:
+                return downSlide(e);
+            
+            // handle left arrow
             case 37:
-            case 38:
                 return prevSlide(e);
+            // handles up arrow and page up
+            case 38:
+            case 33:
+                return upSlide(e);
 
             // handle home key
             case 36:
@@ -340,6 +345,24 @@
         }
         $.history.load(curSlide+1);
     };
+    
+    downSlide = function(e) {
+        if (slides.length < curSlide + 2) { return; }
+        var target=curSlide;
+        for(i=curSlide+1; i<slides.length; i++)
+        {
+                if(parents[i] == parents[curSlide]) {
+                        target = i;
+                        break;
+                }
+        }
+        showSlide(target);
+    };
+
+    upSlide = function(e) {
+        if (curSlide <= 0) { return; }
+        showSlide(parents[curSlide]);
+    };
 
     showSlide = function(target) {
         var direction = 'forward';
@@ -368,7 +391,7 @@
         }
         curSlide = num;
         slides.eq(curSlide).addClass('active');
-        $('.slideDisplay').text((num+1)+'/'+slides.length);
+        $('.slideDisplay').text((num+1)+'/'+slides.length+'<br />Go up to '+parents[num]);
     };
 
     urlChange = function(url) {
@@ -396,6 +419,12 @@
         options = $.extend(defaults, settings);
 
         slides = this;
+        parents= $('.parent');
+        $.each(parents, function(loc, obj)
+        {
+                parents[loc] = parseInt(obj.innerHTML, 10);
+        });
+        
         $('<div/>').addClass('slideDisplay').prependTo('body');
 
         // wrap footer divs
