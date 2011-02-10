@@ -4,12 +4,6 @@
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <!-- Slide meta data, remove/edit as you see fit -->
         <title>Slippy Documentation</title>
-        <meta name="generator" content="Organic" />
-        <meta name="author" content="Jordi Boggiano" />
-        <meta name="company" content="Liip AG" />
-        <meta name="email" content="j.boggiano@seld.be" />
-        <meta name="date" content="2010-05-30" />
-        <meta name="venue" content="The Internets" />
         <!-- Slippy core file and dependencies -->
         <script type="text/javascript" src="../src/jquery-1.4.2.min.js"></script>
         <script type="text/javascript" src="../src/jquery.history.js"></script>
@@ -71,15 +65,95 @@
     <body>
         <div class="slide" data-parent="-1">
             <h1>Welcome to Slippy</h1>
-            <h2>Usage</h2>
-            <ul>
-                <li>Navigation: [Left]/[Right] arrows to move, [Space] or [Double Click] to go to next slide</li>
-                <li>Overview: [ESC]/[Del]/[Tab] to view, [Click] to pick one slide</li>
-                <li>Jump: Press [0-9] keys followed by [Enter] to go straight to one slide</li>
-            </ul>
+	    <h2>Sections</h2>
+	    <div class="vcenter">
+		<p><a href="#2">Introduction</a></p>
+            	<p><a href="#6">Navigation</a></p>
+            	<p><a href="#8">Extra Features</a></p>
+            </div>
         </div>
 
-        <div class="slide" data-parent="0">
+	<div class="slide" data-parent="0">
+		<h1>Introduction</h1>
+		<p>Slippy is a JavaScript library written by Jordi Boggiano. It enables:</p>
+		<div class="vcenter">
+			<p>Clean and easy HTML presentations</p>
+			<p>Amazing navigation capabilities</p>
+			<p>Pretty eye-candy!</p>
+		</div>
+	</div>
+
+	<div class="slide" data-parent="1">
+		<h1>HTML Format</h1>
+		<p>Slippy lets you specify a slide as:</p>
+	    	<div class="vcenter">
+			<pre class="brush: html">
+&lt;div class=&quot;slide&quot; data-parent=&quot;5&quot;&gt;
+    &lt;h1&gt;HTML Format&lt;/h1&gt;
+    &lt;p&gt;Slippy lets you specify a slide as:&lt;/p&gt;
+    &lt;pre class=&quot;brush: html&quot;&gt;
+    ...
+&lt;/div&gt;
+			</pre>
+		</div>
+	</div>
+
+	<div class="slide" data-parent="1">
+		<h1>Powerful Navigation</h1>
+	    	<div class="vcenter">
+			<p>Use arrow-keys, the space-bar, or mouse clicks to navigate normally.</p>
+			<p>Use the up arrow to go up one level from any slide.</p>
+			<p>Use [n] and [p] keys to move to the next or previous slide at the same level, skipping all sub-slides!</p>
+			<p>Navigate directly to a slide by typing in the number</p>
+			<p>Use [Esc] to go to a &quot;preview&quot; mode and chose your slide</p>
+		</div>
+	</div>
+
+	<div class="slide" data-parent="1">
+		<h1>Eye-Candy!</h1>
+	    	<div class="vcenter">
+			<p>Use the provided JavaScript libraries to provide syntax-highlighting, custom layouts, and more!</p>
+		</div>
+	</div>
+
+	<div class="slide" data-parent="0">
+		<h1>Navigation</h1>
+		<div class="vcenter">
+			<p>From a slide, you can move to the next-slide using [right]/[down] arrows or the [Page-Down] key</p>
+			<p>Press [right] to continue...</p>
+			<p>To skip this topic, press [n]</p>
+			<p>To go back to the previous topic (Introduction), press [p]</p>
+		</div>
+	</div>
+
+	<div class="slide" data-parent="5">
+		<h1>Overviews &amp; Jumping</h1>
+		<div class="vcenter">
+			<p>Overview: [ESC]/[Del]/[Tab] to view, [Click] to pick one slide</p>
+			<p>Jump: Press [0-9] keys followed by [Enter] to go straight to one slide</p>
+			<p>Please proceed to the next slide...</p>
+		</div>
+	</div>
+
+	<div class="slide" data-parent="5">
+		<h1>Parent Slides</h1>
+		<div class="vcenter">
+			<p>The parent slide of this and the previous slide is the 'Navigation' slide.</p>
+			<p>Its parent slide is the first slide.</p>
+			<p>To navigate from any slide to its parent slide, press [up] arrow.</p>
+		</div>
+	</div>
+
+	<div class="slide" data-parent="0">
+		<h1>Eye Candy!</h1>
+		<div class="vcenter">
+			<p><a href="#9">Centered Slides</a></p>
+			<p><a href="#10">Layouts</a></p>
+			<p><a href="#11">Syntax Highlighting</a></p>
+		</div>
+	</div>
+
+        <div class="slide" data-parent="8">
             <h1>H1's are centered by default</h1>
             <div class="vcenter">
                 <h2>The class "vcenter" on anything</h2>
@@ -90,7 +164,7 @@
             </div>
         </div>
 
-        <div class="slide" layout="alt" data-parent="0">
+        <div class="slide" layout="alt" data-parent="8">
             <h1>Layouts</h1>
             <h2>This slide uses the "alt" layout</h2>
             <p>It inherits the class "nofooter" of the layout, which allows you to style it differently, and it doesn't have the footer div that the default layout has for example</p>
@@ -115,7 +189,7 @@
             </pre>
         </div>
 
-        <div class="slide" data-parent="2">
+        <div class="slide" data-parent="8">
             <h1>Syntax Highlighting</h1>
             <p>Code is just pre tags with class="brush: &lt;language&gt;"</p>
             <p>The eval class combined with the js brush makes that Execute link appear on the right</p>
@@ -134,7 +208,7 @@ alert('test');
             <p>This is really great to provide interaction during a presentation</p>
         </div>
 
-        <div class="slide" data-parent="2">
+        <div class="slide" data-parent="8">
             <h1>Syntax Highlighting</h1>
             <pre class="brush: php">
 function foo($var) {
@@ -149,10 +223,9 @@ function foo($var) {
         <div class="layout" name="default">
             <content></content>
             <div class="footer">
-                <span class="left">Jordi Boggiano</span>
-                <span class="right">Slippy on <a href="http://github.com/Seldaek/slippy/">github</a></span>
-                <span class="left">Blog <a href="http://seld.be/">seld.be</a></span>
-                <span class="right">Twitter <a href="http://twitter.com/seldaek">@seldaek</a></span>
+                <span class="left">Manoj Mardithaya &lt;manojm@ieee.org&gt;</span>
+                <span class="right">Jordi Boggiano's <a href="http://github.com/Seldaek/slippy/" target="_blank">Slippy on github</a></span>
+		<span class="left">This fork is  <a href="http://github.com/vanwaril/slippy/" target="_blank">Slippy with hierarchies</a></span>
                 <hr class="defloat" />
             </div>
         </div>
