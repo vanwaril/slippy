@@ -14,7 +14,7 @@
 
 // Slide deck module
 (function($) {
-    var slides, curSlide, options, inOverview, parents,
+    var slides, curSlide, options, inOverview, parents=[],
         // methods
         buildSlide, preparePreTags, executeCode, nextSlide, prevSlide, showSlide, setSlide,
         keyboardNav, antiScroll, urlChange, autoSize, clickNav, animInForward, animInRewind, animOutForward, animOutRewind;
@@ -26,6 +26,8 @@
         var $el = $(el),
             layout = $el.attr("layout"),
             $layout;
+        
+        parents.push(parseInt($el.attr("data-parent")));
 
         // add layout to slide
         if (!layout) {
@@ -391,7 +393,7 @@
         }
         curSlide = num;
         slides.eq(curSlide).addClass('active');
-        $('.slideDisplay').text((num+1)+'/'+slides.length+'<br />Go up to '+parents[num]);
+        $('.slideDisplay').text((num+1)+'/'+slides.length);
     };
 
     urlChange = function(url) {
@@ -419,11 +421,11 @@
         options = $.extend(defaults, settings);
 
         slides = this;
-        parents= $('.parent');
-        $.each(parents, function(loc, obj)
-        {
-                parents[loc] = parseInt(obj.innerHTML, 10);
-        });
+        // parents= $('.parent');
+        //$.each(parents, function(loc, obj)
+        //{
+        //        parents[loc] = parseInt(obj.innerHTML, 10);
+        //});
         
         $('<div/>').addClass('slideDisplay').prependTo('body');
 

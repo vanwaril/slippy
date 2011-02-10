@@ -69,8 +69,7 @@
         </style>
     </head>
     <body>
-        <div class="slide">
-	    <span class="parent">-1</span>
+        <div class="slide" data-parent="-1">
             <h1>Welcome to Slippy</h1>
             <h2>Usage</h2>
             <ul>
@@ -80,8 +79,7 @@
             </ul>
         </div>
 
-        <div class="slide">
-	    <span class="parent">0</span>
+        <div class="slide" data-parent="0">
             <h1>H1's are centered by default</h1>
             <div class="vcenter">
                 <h2>The class "vcenter" on anything</h2>
@@ -92,8 +90,7 @@
             </div>
         </div>
 
-        <div class="slide" layout="alt">
-	    <span class="parent">0</span>
+        <div class="slide" layout="alt" data-parent="0">
             <h1>Layouts</h1>
             <h2>This slide uses the "alt" layout</h2>
             <p>It inherits the class "nofooter" of the layout, which allows you to style it differently, and it doesn't have the footer div that the default layout has for example</p>
@@ -118,8 +115,7 @@
             </pre>
         </div>
 
-        <div class="slide">
-	    <span class="parent">2</span>
+        <div class="slide" data-parent="2">
             <h1>Syntax Highlighting</h1>
             <p>Code is just pre tags with class="brush: &lt;language&gt;"</p>
             <p>The eval class combined with the js brush makes that Execute link appear on the right</p>
@@ -138,8 +134,7 @@ alert('test');
             <p>This is really great to provide interaction during a presentation</p>
         </div>
 
-        <div class="slide">
-	    <span class="parent">2</span>
+        <div class="slide" data-parent="2">
             <h1>Syntax Highlighting</h1>
             <pre class="brush: php">
 function foo($var) {
