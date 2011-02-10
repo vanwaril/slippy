@@ -197,16 +197,21 @@
             if (e.altKey || e.ctrlKey || inOverview) { return; }
 
             switch (e.keyCode) {
-            // handle right arrow + space + page down
+            // handle right arrow + space + page down + down arrow
             case 32:
             case 34:
             case 39:
+            case 40:
                 window.scroll(0, 0);
                 return nextSlide(e);
 
-            // handle down arrow
-            case 40:
-                return downSlide(e);
+            // handle 'n' key
+            case 78:
+                return parallelSlide(e);
+
+            // handle 'p' key
+            case 80:
+                return prevParallelSlide(e);
             
             // handle left arrow
             case 37:
@@ -348,10 +353,23 @@
         $.history.load(curSlide+1);
     };
     
-    downSlide = function(e) {
+    parallelSlide = function(e) {
         if (slides.length < curSlide + 2) { return; }
         var target=curSlide;
         for(i=curSlide+1; i<slides.length; i++)
+        {
+                if(parents[i] == parents[curSlide]) {
+                        target = i;
+                        break;
+                }
+        }
+        showSlide(target);
+    };
+    
+    prevParallelSlide = function(e) {
+        if (curSlide == 0) { return; }
+        var target=curSlide;
+        for(i=curSlide-1; i>0; i--)
         {
                 if(parents[i] == parents[curSlide]) {
                         target = i;

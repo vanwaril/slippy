@@ -20,9 +20,13 @@ Code contributions or ideas are obviously also much welcome.
 Usage
 -----
 
-Navigate, double click anywhere, press space or use the left/up and right/down arrow keys
+Navigate, double click anywhere, press space or use the left and right arrow keys
 
 **Now with slide hierarchies!**
+
+Press 'n' to go to the next slide at the same level, or 'p' to go to the previous slide at the same level, and skip all sub-topics!
+
+Use the up-arrow to navigate up a level.
 
 Go to a slide directly, press number keys and then enter
 
@@ -37,7 +41,7 @@ Jordi Boggiano - <j.boggiano@seld.be>
 Changelog
 ---------
 - 1.1.0
-  - Slides require a 'parent' classed item, numbering the parent slide.
+  - Slides require a 'data-parent' attribute, numbering the parent slide.
   - Up and Page Up keys go to parent slide.
   - Down and Page Down keys go to next slide at the same level.
 
